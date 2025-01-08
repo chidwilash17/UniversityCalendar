@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival List</title>
+</head>
+<body>
+    <h1>Festivals</h1>
+    <ul>
+        {% for festival in festivals %}
+            <li>
+                <h2>{{ festival.name }}</h2>
+                <p>{{ festival.description }}</p>
+                <p>{{ festival.date }}</p>
+            </li>
+        {% empty %}
+            <li>No festivals found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

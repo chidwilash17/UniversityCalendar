@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        @media screen and (max-width: 600px) {
+            table, th, td {
+                display: block;
+                width: 100%;
+            }
+
+            th, td {
+                box-sizing: border-box;
+                border: none;
+                padding: 10px;
+                text-align: right;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            th::before, td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                width: 45%;
+                padding-right: 10px;
+                text-align: left;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>I SEMESTER</h2>
+    <table>
+        <thead>
+            <tr>
+                <th data-label="Description">Description</th>
+                <th data-label="From">From</th>
+                <th data-label="To">To</th>
+                <th data-label="No. of Weeks/Days">No. Of Weeks/Days</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Description">Instruction Period</td>
+                <td data-label="From"><a href="/calander/?date=2024-07-08">08/07/2024</a></td>
+                <td data-label="To"><a href="/calander/?date=2024-11-08">08/11/2024</a></td>
+                <td data-label="No. of Weeks/Days">18 weeks</td>
+            </tr>
+            <tr>
+                <td data-label="Description">1 Mid Examinations</td>
+                <td data-label="From"><a href="/calander/?date=2024-08-29">29/08/2024</a></td>
+                <td data-label="To"><a href="/calander/?date=2024-08-31">31/08/2024</a></td>
+                <td data-label="No. of Weeks/Days">3 Days</td>
+            </tr>
+            <tr>
+                <td data-label="Description">2 Mid Examinations</td>
+                <td data-label="From"><a href="/calander/?date=2024-11-06">06/11/2024</a></td>
+                <td data-label="To"><a href="/calander/?date=2024-11-08">08/11/2024</a></td>
+                <td data-label="No. of Weeks/Days">3 Days</td>
+            </tr>
+            <tr>
+                <td data-label="Description">Prepartion & Praticals</td>
+                <td data-label="From"><a href="/calander/?date=2024-11-11">11/11/2024</a></td>
+                <td data-label="To"><a href="/calander/?date=2024-11-16">16/11/2024</a></td>
+                <td data-label="No. of Weeks/Days">1 week</td>
+            </tr>
+            <tr>
+                <td data-label="Description">End Semester Exams</td>
+                <td data-label="From"><a href="/calander/?date=2024-11-18">18/11/2024</a></td>
+                <td data-label="To"><a href="/calander/?date=2024-11-30">30/11/2024</a></td>
+                <td data-label="No. of Weeks/Days">2 weeks</td>
+            </tr>
+        </tbody>
+    </table><br>
+    <h2>II SEMESTER</h2>
+    <table>
+        <thead>
+            <tr>
+                <th data-label="Description">Description </th>
+                <th data-label="From">From</th>
+                <th data-label="To">To</th>
+                <th data-label="No. of Weeks/Days">No. Of Weeks/Days</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Description">Instruction Period</td>
+                <td data-label="From"><a href="/calander/?date=2024-12-02">02/12/2024</a></td>
+                <td data-label="To"><a href="/calander/?date=2025-04-05">05/04/2025</a></td>
+                <td data-label="No. of Weeks/Days">18 weeks</td>
+            </tr>
+            <tr>
+                <td data-label="Description">1 Mid Examinations</td>
+                <td data-label="From"><a href="/calander/?date=2025-01-30">30/01/2025</a></td>
+                <td data-label="To"><a href="/calander/?date=2025-02-01">01/02/2025</a></td>
+                <td data-label="No. of Weeks/Days">3 Days</td>
+            </tr>
+            <tr>
+                <td data-label="Description">2 Mid Examinations</td>
+                <td data-label="From"><a href="/calander/?date=2025-04-03">03/04/2025</a></td>
+                <td data-label="To"><a href="/calander/?date=2025-04-05">05/04/2025</a></td>
+                <td data-label="No. of Weeks/Days">3 Days</td>
+            </tr>
+            
+            <tr>
+                <td data-label="Description">Prepartion & Praticals</td>
+                <td data-label="From"><a href="/calander/?date=2025-04-07">07/04/2025</a></td>
+                <td data-label="To"><a href="/calander/?date=2025-04-11">11/04/2025</a></td>
+                <td data-label="No. of Weeks/Days">1 week</td>
+            </tr>
+            <tr>
+                <td data-label="Description">End Semester Exams</td>
+                <td data-label="From"><a href="/calander/?date=2025-04-14">14/04/2025</a></td>
+                <td data-label="To"><a href="/calander/?date=2025-04-26">26/04/2025</a></td>
+                <td data-label="No. of Weeks/Days">2 weeks</td>
+            </tr>
+            <tr>
+                <td data-label="Description">Internship</td>
+                <td data-label="From"><a href="/calander/?date=2025-04-28">28/04/2025</a></td>
+                <td data-label="To"><a href="/calander/?date=2025-06-21">21/06/2025</a></td>
+                <td data-label="No. of Weeks/Days">2 weeks</td>
+            </tr>
+        </tbody>
+    </table><br><br>
+    <h3 style="text-decoration: underline;padding-bottom:-5px">Dussehra Holidays:<a href="/calander/?date=2024-10-07">07/10/2024</a> TO <a href="/calander/?date=2024-10-12">12/10/2024</a></h3>
+<h3 style="text-decoration: underline;padding-bottom:20px">Pongal Holidays:<a href="/calander/?date=2025-01-13">12/01/2025</a> TO <a href="/calander/?date=2025-01-18">18/01/2025</a></h3>
+    <button type="button" style="background-color: #4CAF50; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;">
+        <a href="{% url 'calander' %}" style="color: white; text-decoration: none;">Home</a>
+    </button>
+</body>
+</html>

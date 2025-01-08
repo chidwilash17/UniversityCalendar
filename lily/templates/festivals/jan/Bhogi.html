@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festivals</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            background-size: 10px;
+        }
+
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            background: #333;
+            padding: 0.5rem 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 400px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+        }
+
+        .card h3 {
+            margin: 10px;
+            padding: 0rem;
+            background: red;
+            color: white;
+        }
+
+        .card p {
+            padding: 1rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HAPPY BHOGI</h1>
+    </header>
+
+    <main>
+        <h2></h2>
+        <div class="card-container">
+            <div class="card">
+                {% load static %}
+                <img src="{% static 'images/bhogi.jpg' %}">
+                <h3>BHOGI</h3>
+                <p>Bhogi (Kannada: ಭೋಗಿ,Telugu: భోగి,Tamil: போகி) is the first day of the four-day Pongal festival. It falls on last day of Agrahāyaṇa or Mārgaśīrṣa month of Hindu Solar Calendar, which is 13 January by the Gregorian calendar. It is the day before Makar Sankranti, celebrated widely in Andhra Pradesh, Telangana, Karnataka, Tamil Nadu, and Maharashtra</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Designed with ❤️ <a href="{% url 'calander' %}">Home</a></p>
+    </footer>
+</body>
+</html>
