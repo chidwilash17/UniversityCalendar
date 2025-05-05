@@ -1,0 +1,291 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabirdas Jayanti - JNTU-GV Calendar</title>
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --spiritual-orange: #FF6B35;
+            --spiritual-blue: #004E89;
+            --spiritual-gold: #FFD166;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navbar {
+            background-color: var(--spiritual-blue);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white !important;
+        }
+        
+        .festival-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('{% static "images/kabir.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .festival-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+        }
+        
+        .festival-header p.lead {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .festival-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 500px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-top: 3px solid var(--spiritual-blue);
+        }
+        
+        .festival-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .festival-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--spiritual-orange);
+        }
+        
+        .festival-card .card-body {
+            padding: 1.2rem;
+        }
+        
+        .festival-card h3 {
+            color: var(--spiritual-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .festival-card h3:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--spiritual-blue), var(--spiritual-orange), var(--spiritual-gold));
+        }
+        
+        .festival-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 0.8rem;
+        }
+        
+        .festival-card .card-footer {
+            background-color: var(--spiritual-orange);
+            color: white;
+            padding: 0.8rem;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.2rem 0;
+            margin-top: auto;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: var(--spiritual-gold);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .flower-petal {
+            position: absolute;
+            color: #FFD166;
+            font-size: 0.8rem;
+            pointer-events: none;
+            animation: fall linear infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .festival-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .festival-header p.lead {
+                font-size: 0.9rem;
+            }
+            
+            .festival-card {
+                max-width: 350px;
+            }
+            
+            .festival-card img {
+                height: 200px;
+            }
+            
+            .festival-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .festival-card p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'calendar' %}">
+                <i class="fas fa-calendar-alt me-1"></i>JNTU-GV Calendar
+            </a>
+            <div class="d-flex align-items-center">
+                <span class="text-light me-2">
+                    <i class="fas fa-user-circle me-1"></i>{{ request.user.username }}
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Festival Header -->
+    <header class="festival-header">
+        <div class="container">
+            <h1>Kabirdas Jayanti</h1>
+            <p class="lead">Celebrating the birth of Saint Kabir Das</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="card-container">
+            <div class="card festival-card">
+                <img src="{% static 'images/kabir.jpg' %}" alt="Kabir Das" class="card-img-top">
+                <div class="card-body">
+                    <h3>Kabirdas Jayanti</h3>
+                    <p>
+                        Kabir Jayanti celebrates the birth of the 15th-century Indian mystic poet and saint Kabir Das. Observed on the full moon day of Jyeshtha month (May-June) in the Hindu calendar, this day honors the life and teachings of one of India's most revered spiritual figures.
+                    </p>
+                    <p>
+                        Kabir's origins are shrouded in legend. Some believe he was born to Muslim parents, while others hold that he miraculously appeared on a lotus flower in the sacred Lahartara lake near Varanasi. This divine manifestation is commemorated at the Kabirpanth on Lahartara lake, where devotees gather annually.
+                    </p>
+                    <p>
+                        Kabir's teachings transcended religious boundaries, blending elements of Hindu Bhakti and Islamic Sufi traditions. His dohas (couplets) continue to inspire millions with their message of unity, devotion, and social equality. Celebrations include recitations of his poetry, devotional singing, and spiritual discourses.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <i class="fas fa-calendar-day me-1"></i> Celebrated on Jyeshtha Purnima (Full Moon Day)
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} JNTU-GV Calendar. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-danger"></i> by <a href="{% url 'calendar' %}">JNTU-GV Team</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Flower Petal Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const petals = ['✿', '❀', '✽', '❁', '✾', '✤', '✥'];
+            const container = document.querySelector('.festival-header');
+            
+            function createPetal() {
+                const petal = document.createElement('div');
+                petal.className = 'flower-petal';
+                petal.innerHTML = petals[Math.floor(Math.random() * petals.length)];
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+                petal.style.opacity = Math.random();
+                petal.style.fontSize = Math.random() * 10 + 8 + 'px';
+                
+                container.appendChild(petal);
+                
+                setTimeout(() => {
+                    petal.remove();
+                }, 5000);
+            }
+            
+            setInterval(createPetal, 150);
+        });
+    </script>
+</body>
+</html>

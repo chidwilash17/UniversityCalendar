@@ -1,131 +1,124 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Festivals</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #89f7fe, #66a6ff);
-            background-size: 10px;
-        }
-
-        header {
-            background: #4CAF50;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            background: #333;
-            padding: 0.5rem 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #4CAF50;
-        }
-
-        main {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .card-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 400px;
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-        }
-
-        .card h3 {
-            margin: 10px;
-            padding: 0rem;
-            background: red;
-            color: white;
-        }
-
-        .card p {
-            padding: 1rem;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-
-        footer a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Makara Sankranti - JNTU-GV Calendar</title>
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'sankranti.css' %}">
 </head>
 <body>
-    <header>
-        <h1>HAPPY MAKARA SANKRANTI</h1>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'calendar' %}">
+                <i class="fas fa-calendar-alt me-1"></i>JNTU-GV Calendar
+            </a>
+            <div class="d-flex align-items-center">
+                <span class="text-light me-2">
+                    <i class="fas fa-user-circle me-1"></i>{{ request.user.username }}
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Festival Header -->
+    <header class="festival-header">
+        <div class="container">
+            <h1>Happy Makara Sankranti</h1>
+            <p class="lead">Celebrating the harvest festival and sun's northward journey</p>
+        </div>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <h2></h2>
         <div class="card-container">
-            <div class="card">
-                {% load static %}
-                <img src="{% static 'images/sankranti.jpg' %}">
-                <h3>MAKARA SANKRANTI</h3>
-                <p>Makar Sankranti: Marks the transition of the Sun into Makara Râshi (Capricorn) on its celestial path, and the six-month Uttarayana period. Makar Sankranti is also called Uttarayana - the day on which the sun begins his northward journey. The traditional Indian calendar is based on lunar positions, Sankranti is a solar event. The date of Makar Sankranti remains constant over a long term, 14 January or occasionally, 15 January as the Sun begins to rise in Makara Râshi.</p>
+            <div class="card festival-card">
+                <div class="image-container">
+                    <img src="{% static 'images/sankranti.jpg' %}" alt="Makara Sankranti Celebration">
+                </div>
+                <div class="card-body">
+                    <h3>MAKARA SANKRANTI</h3>
+                    <p>
+                        Makar Sankranti marks the transition of the Sun into Makara Râshi (Capricorn) on its celestial path, and the beginning of the six-month Uttarayana period. This festival is celebrated across India with different names and traditions, but universally signifies the end of winter and the start of longer days.
+                    </p>
+                    <p>
+                        Makar Sankranti is unique as it's one of the few Hindu festivals based on the solar calendar rather than the lunar calendar, which is why it falls on approximately the same date every year (January 14 or 15). The festival celebrates the harvest season and is associated with special foods made of sesame and jaggery, kite flying, bonfires, and ritual baths in holy rivers.
+                    </p>
+                    <p>
+                        In different regions, the festival is known as Pongal (Tamil Nadu), Lohri (Punjab), Bihu (Assam), and Uttarayan (Gujarat). The festival symbolizes the victory of light over darkness and knowledge over ignorance, marking an important astronomical event when the sun begins its northward journey.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <i class="fas fa-calendar-day me-1"></i> Celebrated annually on January 14th or 15th
+                </div>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; Designed with ❤️ <a href="{% url 'calander' %}">Home</a></p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} JNTU-GV Calendar. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-danger"></i> by <a href="{% url 'calendar' %}">JNTU-GV Team</a></p>
+        </div>
     </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Falling Elements Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Festival elements - kites, sun, sesame, etc.
+            const elements = [
+                '🪁', '☀️', '🌾', '🪔', '🌸',
+                '🌻', '🫘', '🍯', '🔥', '🌊',
+                '🙏', '🕉️', '🎪', '🎯', '🏮'
+            ];
+            
+            function createFallingElement() {
+                const element = document.createElement('div');
+                element.className = 'falling-element';
+                element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+                
+                // Random position across the width of the screen
+                const leftPos = Math.random() * window.innerWidth;
+                element.style.left = leftPos + 'px';
+                
+                // Random animation duration between 5 to 15 seconds
+                const duration = Math.random() * 10 + 5;
+                element.style.animationDuration = duration + 's';
+                
+                // Random size
+                const size = Math.random() * 20 + 15;
+                element.style.fontSize = size + 'px';
+                
+                // Random rotation direction
+                const rotation = Math.random() > 0.5 ? 360 : -360;
+                element.style.setProperty('--rotation', rotation + 'deg');
+                
+                document.body.appendChild(element);
+                
+                // Remove element after animation completes
+                setTimeout(() => {
+                    element.remove();
+                }, duration * 1000);
+            }
+            
+            // Create a new falling element every 0.5 to 1.5 seconds
+            setInterval(createFallingElement, 500);
+            
+            // Create some initial elements
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createFallingElement, i * 300);
+            }
+        });
+    </script>
 </body>
 </html>

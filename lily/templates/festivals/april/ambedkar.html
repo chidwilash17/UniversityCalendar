@@ -1,130 +1,397 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Festivals</title>
+    <title>Ambedkar Jayanti - Festival Calendar</title>
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --ambedkar-blue: #000080;
+            --ambedkar-white: #FFFFFF;
+            --ambedkar-orange: #FF8C00;
+            --ambedkar-green: #006400;
+        }
+        
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #e6f0fa);
             color: #333;
-            background: linear-gradient(135deg, #89f7fe, #66a6ff);
-            background-size: 10px;
-        }
-
-        header {
-            background: #4CAF50;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        nav {
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            background: #333;
-            padding: 0.5rem 0;
+            flex-direction: column;
+            overflow-x: hidden;
         }
-
-        nav a {
+        
+        .navbar {
+            background-color: var(--ambedkar-blue);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white !important;
+        }
+        
+        .festival-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('{% static "images/ambedkar.jpg" %}');
+            background-size: cover;
+            background-position: center;
             color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #4CAF50;
-        }
-
-        main {
-            padding: 2rem;
+            padding: 3rem 0;
             text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
         }
-
+        
+        .festival-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+        }
+        
+        .festival-header p.lead {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
         .card-container {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
+            padding: 0 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
         }
-
-        .card {
+        
+        .festival-card {
             background: white;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: hidden;
-            width: 400px;
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card img {
             width: 100%;
-            height: 200px;
+            max-width: 500px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-top: 3px solid var(--ambedkar-blue);
         }
-
-        .card h3 {
-            margin: 10px;
-            padding: 0rem;
-            background: red;
+        
+        .festival-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .image-container {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 3px solid var(--ambedkar-orange);
+        }
+        
+        .festival-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+        
+        .festival-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .festival-card h3 {
             color: white;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(to right, var(--ambedkar-blue), var(--ambedkar-green));
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
         }
-
-        .card p {
-            padding: 1rem;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        
+        .festival-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 0.8rem;
         }
-
-        footer {
-            background: #333;
+        
+        .festival-card .card-footer {
+            background-color: var(--ambedkar-blue);
             color: white;
+            padding: 0.8rem;
             text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
+            font-weight: 500;
+            font-size: 0.9rem;
         }
-
-        footer a {
-            color: #4CAF50;
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: auto;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer a {
+            color: var(--ambedkar-orange);
             text-decoration: none;
-            font-weight: bold;
+            transition: color 0.3s;
         }
-
-        footer a:hover {
+        
+        .footer a:hover {
+            color: white;
             text-decoration: underline;
+        }
+        
+        /* Falling elements styles */
+        .falling-element {
+            position: fixed;
+            top: -50px;
+            font-size: 1.5rem;
+            pointer-events: none;
+            z-index: 100;
+            animation: falling linear forwards;
+            user-select: none;
+        }
+        
+        @keyframes falling {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(100vh + 50px)) rotate(360deg);
+                opacity: 1;
+            }
+        }
+        
+        /* Special animation for book symbol */
+        .book-symbol {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--ambedkar-white);
+            pointer-events: none;
+            animation: float 5s infinite ease-in-out;
+            opacity: 0.8;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .festival-header h1 {
+                font-size: 2rem;
+            }
+            
+            .festival-header p.lead {
+                font-size: 1rem;
+            }
+            
+            .festival-card {
+                max-width: 400px;
+            }
+            
+            .image-container {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .festival-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .festival-header p.lead {
+                font-size: 0.9rem;
+            }
+            
+            .festival-card {
+                max-width: 350px;
+            }
+            
+            .image-container {
+                height: 200px;
+            }
+            
+            .festival-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .festival-card p {
+                font-size: 0.9rem;
+            }
+            
+            .falling-element, .book-symbol {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>AMBEDKAR JAYANTI</h1>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'calendar' %}">
+                <i class="fas fa-calendar-alt me-1"></i>Festival Calendar
+            </a>
+            <div class="d-flex align-items-center">
+                <span class="text-light me-2">
+                    <i class="fas fa-user-circle me-1"></i>{{ request.user.username }}
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Festival Header -->
+    <header class="festival-header">
+        <div class="container">
+            <h1>Ambedkar Jayanti</h1>
+            <p class="lead">Celebrating the Architect of India's Constitution</p>
+        </div>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <h2></h2>
         <div class="card-container">
-            <div class="card">
-                {% load static %}
-                <img src="{% static 'images/ambedkar.jpg' %}">
-                <h3>AMBEDKAR JAYANTI</h3>
-                <p>Ambedkar Jayanti or Bhim Jayanti is observed on 14 April to commemorate the memory of Dr. B. R. Ambedkar, an Indian jurist, economist, social reformer and the principal architect of constitution of India. The observance marks the birthday of Ambedkar, who was born on 14 April 1891. His birthday is also referred to as 'Equality Day' by many in India. In 2016, The Government of India declared 14 April as Rashtriya Samarasata Diwas to honor Ambedkar's legacy and contributions</p>
+            <div class="card festival-card">
+                <div class="image-container">
+                    <img src="{% static 'images/ambedkar.jpg' %}" alt="Ambedkar Jayanti Celebration">
+                </div>
+                <div class="card-body">
+                    <h3>Ambedkar Jayanti</h3>
+                    <p>
+                        Ambedkar Jayanti or Bhim Jayanti is observed on 14 April to commemorate the memory of Dr. B. R. Ambedkar, an Indian jurist, economist, social reformer and the principal architect of constitution of India. The observance marks the birthday of Ambedkar, who was born on 14 April 1891. His birthday is also referred to as 'Equality Day' by many in India. In 2016, The Government of India declared 14 April as Rashtriya Samarasata Diwas (National Harmony Day) to honor Ambedkar's legacy and contributions.
+                    </p>
+                    <p>
+                        Dr. Bhimrao Ramji Ambedkar was a visionary leader who dedicated his life to eradicating social inequality in India. As India's first Law Minister and the chairman of the drafting committee of the Constitution, he played a pivotal role in shaping modern India. His work focused on social justice, equality, and the rights of marginalized communities, particularly the Dalits. Ambedkar was also a prolific scholar, having earned multiple doctorates from Columbia University and the London School of Economics.
+                    </p>
+                    <p>
+                        On Ambedkar Jayanti, processions, memorial speeches, and cultural programs are organized across India. People visit his statues and memorials to pay homage, with the largest gatherings at the Chaitya Bhoomi in Mumbai and Deeksha Bhoomi in Nagpur. Educational institutions conduct special events highlighting his contributions. The day serves as a reminder of his ideals of social justice, equality, and human rights, inspiring millions to continue working towards an equitable society.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <i class="fas fa-calendar-day me-1"></i> Celebrated annually on April 14th
+                </div>
+            </div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; Designed with ❤️ <a href="{% url 'calander' %}">Home</a></p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} Festival Calendar. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-danger"></i> by <a href="{% url 'calendar' %}">Festival Team</a></p>
+        </div>
     </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ambedkar-related falling elements
+            const elements = [
+                '📖', '📚', '⚖️', '✊', '✍️',
+                '📜', '🏛️', '🌍', '🙏', '🕊️',
+                '📝', '🎓', '👨‍⚖️', '⚛️', '🔖'
+            ];
+            
+            function createFallingElement() {
+                const element = document.createElement('div');
+                element.className = 'falling-element';
+                element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+                
+                // Random position across the width of the screen
+                const leftPos = Math.random() * window.innerWidth;
+                element.style.left = leftPos + 'px';
+                
+                // Random animation duration between 5 to 15 seconds
+                const duration = Math.random() * 10 + 5;
+                element.style.animationDuration = duration + 's';
+                
+                // Random size
+                const size = Math.random() * 20 + 15;
+                element.style.fontSize = size + 'px';
+                
+                // Random rotation direction
+                const rotation = Math.random() > 0.5 ? 360 : -360;
+                element.style.setProperty('--rotation', rotation + 'deg');
+                
+                document.body.appendChild(element);
+                
+                // Remove element after animation completes
+                setTimeout(() => {
+                    element.remove();
+                }, duration * 1000);
+            }
+            
+            // Create floating book symbols
+            function createBookSymbol() {
+                const book = document.createElement('div');
+                book.className = 'book-symbol';
+                book.innerHTML = '📖';
+                book.style.left = Math.random() * 100 + 'vw';
+                book.style.top = Math.random() * 100 + 'vh';
+                book.style.fontSize = Math.random() * 30 + 20 + 'px';
+                book.style.opacity = Math.random() * 0.5 + 0.3;
+                
+                document.querySelector('.festival-header').appendChild(book);
+                
+                setTimeout(() => {
+                    book.remove();
+                }, 5000);
+            }
+            
+            // Create a new falling element every 0.5 to 1.5 seconds
+            setInterval(createFallingElement, 500);
+            
+            // Create floating book symbols every 1 second
+            setInterval(createBookSymbol, 1000);
+            
+            // Create some initial elements
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createFallingElement, i * 300);
+                setTimeout(createBookSymbol, i * 500);
+            }
+        });
+    </script>
 </body>
 </html>

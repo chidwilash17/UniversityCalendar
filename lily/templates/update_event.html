@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Event - JNTU-GV Calendar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'update.css' %}">
+</head>
+<body>
+    <div class="update-container">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="mb-0">
+                    <i class="fas fa-edit me-2"></i>Update Event
+                </h2>
+            </div>
+            <div class="card-body">
+                <form method="post" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.title.id_for_label }}" class="form-label">
+                            <i class="fas fa-heading me-2"></i>Event Title
+                        </label>
+                        <input type="text" class="form-control" id="{{ form.title.id_for_label }}" 
+                               name="{{ form.title.name }}" value="{{ form.title.value|default:'' }}" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid title.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.date.id_for_label }}" class="form-label">
+                            <i class="fas fa-calendar-day me-2"></i>Date
+                        </label>
+                        <input type="date" class="form-control" id="{{ form.date.id_for_label }}" 
+                               name="{{ form.date.name }}" value="{{ form.date.value|date:'Y-m-d' }}" required>
+                        <div class="invalid-feedback">
+                            Please select a valid date.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.event_type.id_for_label }}" class="form-label">
+                            <i class="fas fa-tag me-2"></i>Event Type
+                        </label>
+                        <select class="form-select" id="{{ form.event_type.id_for_label }}" 
+                                name="{{ form.event_type.name }}" required>
+                            {% for value, label in form.event_type.field.choices %}
+                                <option value="{{ value }}" {% if form.event_type.value == value %}selected{% endif %}>
+                                    {{ label }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>           
+                    <div class="mb-3">
+                        <label for="{{ form.description.id_for_label }}" class="form-label">
+                            <i class="fas fa-align-left me-2"></i>Description
+                        </label>
+                        <textarea class="form-control" id="{{ form.description.id_for_label }}" 
+                                  name="{{ form.description.name }}" rows="4">{{ form.description.value|default:'' }}</textarea>
+                    </div>  
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save me-2"></i>Save Changes
+                        </button>
+                        <a href="{% url 'calendar' %}" class="btn btn-secondary">
+                            <i class="fas fa-times me-2"></i>Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Client-side form validation
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+    </script>
+</body>
+</html>

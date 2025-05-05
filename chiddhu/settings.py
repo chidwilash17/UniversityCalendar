@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-*a+d$9bx-sj)-!&=ujg8u452ap04zbxxx!)9l-solv8y7dacqa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','chidwi']
+
+
 
 
 # Application definition
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'lily',
+    
     
 ]
 
@@ -56,7 +59,7 @@ ROOT_URLCONF = 'chiddhu.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates','festivals','jan','feb','march','april','may'],
+        'DIRS': [BASE_DIR / 'templates','festivals','jan','feb','march','april','may','accounts','june','august','sept','oct','nov'],
        
         'APP_DIRS': True,
         'OPTIONS': {
@@ -65,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
@@ -80,6 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        
     }
 }
 
@@ -118,7 +123,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    BASE_DIR / "static","images",  # Path to your static files
+]
 
 
 # Default primary key field type
@@ -139,3 +146,16 @@ EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER='chidwilash123@gmail.com'
 EMAIL_HOST_PASSWORD='yawx qdvu ksvy nzxq'
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}

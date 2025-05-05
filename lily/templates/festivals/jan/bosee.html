@@ -1,131 +1,292 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Festivals</title>
+    <title>Netaji Jayanti - JNTU-GV Calendar</title>
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --patriotic-saffron: #FF9933;
+            --patriotic-white: #FFFFFF;
+            --patriotic-green: #138808;
+            --patriotic-blue: #000080;
+        }
+        
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             color: #333;
-            background: linear-gradient(135deg, #89f7fe, #66a6ff);
-            background-size: 10px;
-        }
-
-        header {
-            background: #4CAF50;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        nav {
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            background: #333;
-            padding: 0.5rem 0;
+            flex-direction: column;
         }
-
-        nav a {
+        
+        .navbar {
+            background-color: var(--patriotic-blue);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white !important;
+        }
+        
+        .festival-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('{% static "images/bose.jpg" %}');
+            background-size: cover;
+            background-position: center;
             color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #4CAF50;
-        }
-
-        main {
-            padding: 2rem;
+            padding: 2rem 0;
             text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
         }
-
+        
+        .festival-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+        }
+        
+        .festival-header p.lead {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
         .card-container {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
+            padding: 0 1rem;
+            margin-bottom: 2rem;
         }
-
-        .card {
+        
+        .festival-card {
             background: white;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: hidden;
-            width: 400px;
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card img {
             width: 100%;
-            height: 200px;
+            max-width: 500px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-top: 3px solid var(--patriotic-saffron);
         }
-
-        .card h3 {
-            margin: 10px;
-            padding: 0rem;
-            background: red;
+        
+        .festival-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .festival-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--patriotic-green);
+        }
+        
+        .festival-card .card-body {
+            padding: 1.2rem;
+        }
+        
+        .festival-card h3 {
+            color: var(--patriotic-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .festival-card h3:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--patriotic-saffron), var(--patriotic-white), var(--patriotic-green));
+        }
+        
+        .festival-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 0.8rem;
+        }
+        
+        .festival-card .card-footer {
+            background-color: var(--patriotic-blue);
             color: white;
-        }
-
-        .card p {
-            padding: 1rem;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        footer {
-            background: #333;
-            color: white;
+            padding: 0.8rem;
             text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
+            font-weight: 500;
+            font-size: 0.9rem;
         }
-
-        footer a {
-            color: #4CAF50;
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.2rem 0;
+            margin-top: auto;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: var(--patriotic-saffron);
             text-decoration: none;
-            font-weight: bold;
+            transition: color 0.3s;
         }
-
-        footer a:hover {
+        
+        .footer a:hover {
+            color: white;
             text-decoration: underline;
+        }
+        
+        .flag {
+            position: absolute;
+            font-size: 1rem;
+            pointer-events: none;
+            animation: wave 3s infinite ease-in-out;
+        }
+        
+        @keyframes wave {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .festival-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .festival-header p.lead {
+                font-size: 0.9rem;
+            }
+            
+            .festival-card {
+                max-width: 350px;
+            }
+            
+            .festival-card img {
+                height: 200px;
+            }
+            
+            .festival-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .festival-card p {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>NETAJI SUBHAS CHANDRA BOSE JAYANTI</h1>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'calendar' %}">
+                <i class="fas fa-calendar-alt me-1"></i>JNTU-GV Calendar
+            </a>
+            <div class="d-flex align-items-center">
+                <span class="text-light me-2">
+                    <i class="fas fa-user-circle me-1"></i>{{ request.user.username }}
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Festival Header -->
+    <header class="festival-header">
+        <div class="container">
+            <h1>Netaji Subhas Chandra Bose Jayanti</h1>
+            <p class="lead">Celebrating the birth anniversary of India's fearless freedom fighter</p>
+        </div>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <h2></h2>
         <div class="card-container">
-            <div class="card">
-                {% load static %}
-                <img src="{% static 'images/bose.jpg' %}">
-                <h3>NETAJI JAYANTI</h3>
-                <p>Netaji Jayanti or Netaji Subhas Chandra Bose Jayanti, officially known as Parakram Diwas or Parakram Divas ('Day of Valour'), is a national event celebrated in India to mark the birthday of the prominent Indian freedom fighter Netaji Subhas Chandra Bose. It is celebrated annually on 23 January. He played a pivotal role in Indian independence movement. He was the head of Indian National Army (Azad Hind Fauj). He was the founder-head of the Azad Hind Government</p>
+            <div class="card festival-card">
+                <img src="{% static 'images/bose.jpg' %}" alt="Netaji Subhas Chandra Bose" class="card-img-top">
+                <div class="card-body">
+                    <h3>Parakram Diwas (Day of Valour)</h3>
+                    <p>
+                        Netaji Jayanti or Netaji Subhas Chandra Bose Jayanti, officially known as Parakram Diwas ('Day of Valour'), is celebrated annually on 23 January to commemorate the birthday of the prominent Indian freedom fighter Netaji Subhas Chandra Bose. He played a pivotal role in India's independence movement and was the founder of the Azad Hind Fauj (Indian National Army).
+                    </p>
+                    <p>
+                        Netaji's famous slogan "Give me blood and I will give you freedom" inspired millions of Indians to join the freedom struggle. As the head of the Azad Hind Government, he established the first independent Indian government on foreign soil and led the Indian National Army in battles against the British.
+                    </p>
+                    <p>
+                        Celebrations include flag-hoisting ceremonies, cultural programs, and tributes at Netaji's statues across the country. The day serves as a reminder of his courage, leadership, and unwavering commitment to India's independence.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <i class="fas fa-calendar-day me-1"></i> Celebrated annually on January 23rd
+                </div>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; Designed with ❤️ <a href="{% url 'calander' %}">Home</a></p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} JNTU-GV Calendar. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-danger"></i> by <a href="{% url 'calendar' %}">JNTU-GV Team</a></p>
+        </div>
     </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Flag Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const flags = ['🇮🇳', '✊', '🕊️', '✨', '🌟'];
+            const container = document.querySelector('.festival-header');
+            
+            function createFlag() {
+                const flag = document.createElement('div');
+                flag.className = 'flag';
+                flag.innerHTML = flags[Math.floor(Math.random() * flags.length)];
+                flag.style.left = Math.random() * 100 + 'vw';
+                flag.style.top = Math.random() * 20 + 'vh';
+                flag.style.fontSize = Math.random() * 20 + 10 + 'px';
+                
+                container.appendChild(flag);
+                
+                setTimeout(() => {
+                    flag.remove();
+                }, 5000);
+            }
+            
+            setInterval(createFlag, 300);
+        });
+    </script>
 </body>
 </html>

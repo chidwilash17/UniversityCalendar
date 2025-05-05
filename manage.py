@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
-#!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
 import os
 import sys
 import webbrowser
@@ -20,14 +18,7 @@ def main():
         ) from exc
     
     # Open the browser after a short delay to ensure the server is running
-    def open_browser():
-        time.sleep(1)  # Give the server a moment to start
-        webbrowser.open('http://127.0.0.1:8000')
-
-    if 'runserver' in sys.argv:
-        # Start the browser in a new thread
-        import threading
-        threading.Thread(target=open_browser).start()
+    
 
     execute_from_command_line(sys.argv)
 

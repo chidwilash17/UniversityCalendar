@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers' Day - JNTU-GV Calendar</title>
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --teacher-blue: #1E90FF;
+            --teacher-white: #FFFFFF;
+            --teacher-gold: #FFD700;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #e6f2ff);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navbar {
+            background-color: var(--teacher-blue);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white !important;
+        }
+        
+        .festival-header {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('{% static "images/teachers.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .festival-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+        }
+        
+        .festival-header p.lead {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .festival-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 550px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-top: 4px solid var(--teacher-gold);
+        }
+        
+        .festival-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .festival-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--teacher-white);
+        }
+        
+        .festival-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .festival-card h3 {
+            color: var(--teacher-blue);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .festival-card h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--teacher-blue), var(--teacher-white), var(--teacher-gold));
+        }
+        
+        .festival-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+        
+        .festival-card .card-footer {
+            background: linear-gradient(90deg, var(--teacher-blue), var(--teacher-white), var(--teacher-gold));
+            color: var(--primary-color);
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: auto;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        .footer a {
+            color: var(--teacher-gold);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .apple {
+            position: absolute;
+            color: var(--teacher-gold);
+            font-size: 1rem;
+            pointer-events: none;
+            animation: float 5s ease-in-out infinite;
+            opacity: 0.8;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .festival-header h1 {
+                font-size: 2rem;
+            }
+            
+            .festival-header p.lead {
+                font-size: 1rem;
+            }
+            
+            .festival-card {
+                max-width: 100%;
+            }
+            
+            .festival-card img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'calendar' %}">
+                <i class="fas fa-calendar-alt me-2"></i>JNTU-GV Calendar
+            </a>
+            <div class="d-flex align-items-center">
+                <span class="text-light me-2">
+                    <i class="fas fa-user-circle me-2"></i>{{ request.user.username }}
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Festival Header -->
+    <header class="festival-header">
+        <div class="container">
+            <h1>Teachers' Day</h1>
+            <p class="lead">Honoring Our Mentors and Guides</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="card-container">
+            <div class="card festival-card">
+                <img src="{% static 'images/teachers.jpg' %}" alt="Teachers' Day Celebration" class="card-img-top">
+                <div class="card-body">
+                    <h3>Teachers' Day</h3>
+                    <p>
+                        Teachers' Day is celebrated annually on September 5th in India to honor the birth anniversary of Dr. Sarvepalli Radhakrishnan, the second President of India and a renowned teacher. This day recognizes the valuable contributions of teachers in shaping students' lives and the future of the nation.
+                    </p>
+                    <p>
+                        Schools and colleges across India celebrate this day with special programs where students perform cultural activities, speeches, and skits to express their gratitude. Senior students often take on teaching roles for junior classes, giving teachers a day of rest. Many institutions award outstanding teachers and organize felicitation ceremonies.
+                    </p>
+                    <p>
+                        The day emphasizes the importance of teachers in society and the teaching profession. Students present flowers, cards, and gifts to their teachers as tokens of appreciation. Dr. Radhakrishnan himself suggested that instead of celebrating his birthday, the day should be observed as Teachers' Day to honor all teachers - a tradition that continues today.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <i class="fas fa-chalkboard-teacher me-2"></i> Celebrated annually on September 5th
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} JNTU-GV Calendar. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <a href="{% url 'calendar' %}">JNTU-GV Team</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Apple Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const apples = ['🍎', '📚', '✏️', '📝', '🎓', '🏆', '📖', '🧑‍🏫'];
+            const container = document.querySelector('.festival-header');
+            
+            function createApple() {
+                const apple = document.createElement('div');
+                apple.className = 'apple';
+                apple.innerHTML = apples[Math.floor(Math.random() * apples.length)];
+                apple.style.left = Math.random() * 100 + 'vw';
+                apple.style.top = Math.random() * 100 + 'vh';
+                apple.style.animationDuration = Math.random() * 3 + 2 + 's';
+                apple.style.fontSize = Math.random() * 20 + 15 + 'px';
+                
+                container.appendChild(apple);
+                
+                setTimeout(() => {
+                    apple.remove();
+                }, 8000);
+            }
+            
+            // Create initial apples
+            for (let i = 0; i < 10; i++) {
+                createApple();
+            }
+            
+            setInterval(createApple, 500);
+        });
+    </script>
+</body>
+</html>

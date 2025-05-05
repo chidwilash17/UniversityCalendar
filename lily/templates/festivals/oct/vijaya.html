@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijayadashami - JNTU-GV Calendar</title>
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --vijayadashami-orange: #FF8C00;
+            --vijayadashami-red: #B22222;
+            --vijayadashami-yellow: #FFD700;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff5e6, #ffebcc);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navbar {
+            background-color: var(--vijayadashami-orange);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white !important;
+        }
+        
+        .festival-header {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('{% static "images/vijayas.jpeg" %}');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .festival-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+        }
+        
+        .festival-header p.lead {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .festival-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 550px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-top: 4px solid var(--vijayadashami-yellow);
+        }
+        
+        .festival-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .festival-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--vijayadashami-red);
+        }
+        
+        .festival-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .festival-card h3 {
+            color: var(--vijayadashami-orange);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .festival-card h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--vijayadashami-orange), var(--vijayadashami-red), var(--vijayadashami-yellow));
+        }
+        
+        .festival-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+        
+        .festival-card .card-footer {
+            background: linear-gradient(90deg, var(--vijayadashami-orange), var(--vijayadashami-red), var(--vijayadashami-yellow));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: auto;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        .footer a {
+            color: var(--vijayadashami-yellow);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .bow-arrow {
+            position: absolute;
+            color: var(--vijayadashami-yellow);
+            font-size: 1rem;
+            pointer-events: none;
+            animation: float 5s ease-in-out infinite;
+            opacity: 0.8;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .festival-header h1 {
+                font-size: 2rem;
+            }
+            
+            .festival-header p.lead {
+                font-size: 1rem;
+            }
+            
+            .festival-card {
+                max-width: 100%;
+            }
+            
+            .festival-card img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'calendar' %}">
+                <i class="fas fa-calendar-alt me-2"></i>JNTU-GV Calendar
+            </a>
+            <div class="d-flex align-items-center">
+                <span class="text-light me-2">
+                    <i class="fas fa-user-circle me-2"></i>{{ request.user.username }}
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Festival Header -->
+    <header class="festival-header">
+        <div class="container">
+            <h1>Vijayadashami</h1>
+            <p class="lead">Celebrating the Victory of Good Over Evil</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="card-container">
+            <div class="card festival-card">
+                <img src="{% static 'images/vijayas.jpeg' %}" alt="Vijayadashami Celebration" class="card-img-top">
+                <div class="card-body">
+                    <h3>Vijayadashami (Dussehra)</h3>
+                    <p>
+                        Vijayadashami, also known as Dussehra, is a major Hindu festival celebrated at the end of Navratri every year. It falls on the tenth day of the bright half (Shukla Paksha) of the month Ashvin (September-October). The festival commemorates Lord Rama's victory over Ravana and Goddess Durga's victory over Mahishasura, symbolizing the triumph of good over evil.
+                    </p>
+                    <p>
+                        In northern India, the festival is marked by Ramlila performances and the burning of huge effigies of Ravana, Kumbhakarna, and Meghnad. In southern and eastern India, it's celebrated as the day Goddess Durga killed Mahishasura and is marked by the immersion of Durga idols. The day is considered auspicious for starting new ventures and students traditionally begin their learning journey on this day in the Vidyarambham ceremony.
+                    </p>
+                    <p>
+                        Celebrations include visiting temples, exchanging sweets, and family gatherings. In many regions, people worship weapons and tools as part of Ayudha Puja. The festival also marks the end of the rainy season and beginning of the harvest season in many parts of India.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <i class="fas fa-sun me-2"></i> Celebrated on the 10th day of Ashvin month (September-October)
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} JNTU-GV Calendar. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <a href="{% url 'calendar' %}">JNTU-GV Team</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Bow & Arrow Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const weapons = ['🏹', '⚔️', '🛡️', '✨', '🌟', '🔥', '🙏'];
+            const container = document.querySelector('.festival-header');
+            
+            function createWeapon() {
+                const weapon = document.createElement('div');
+                weapon.className = 'bow-arrow';
+                weapon.innerHTML = weapons[Math.floor(Math.random() * weapons.length)];
+                weapon.style.left = Math.random() * 100 + 'vw';
+                weapon.style.top = Math.random() * 100 + 'vh';
+                weapon.style.animationDuration = Math.random() * 3 + 2 + 's';
+                weapon.style.fontSize = Math.random() * 20 + 15 + 'px';
+                
+                container.appendChild(weapon);
+                
+                setTimeout(() => {
+                    weapon.remove();
+                }, 8000);
+            }
+            
+            // Create initial weapons
+            for (let i = 0; i < 10; i++) {
+                createWeapon();
+            }
+            
+            setInterval(createWeapon, 500);
+        });
+    </script>
+</body>
+</html>

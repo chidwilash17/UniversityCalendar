@@ -1,28 +1,11 @@
-"""
-URL configuration for chiddhu project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-
 from django.urls import include,path
 from lily import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.register, name='register'),
-    path('login_view', views.login_view, name='login'),
-    path('calander/', views.calander, name='calander'),
+    path('login_view/', views.login_view, name='login'),
+    path('calander/', views.calendar, name='calendar'),
     path('tables/', views.tables, name='tables'),
     path('tables2/', views.tables2, name='tables2'),
     path('tables3/', views.tables3, name='tables3'),
@@ -51,7 +34,28 @@ urlpatterns = [
     path('mother/', views.mother, name='mother'),
     path('buddha/', views.buddha, name='buddha'),
     path('bakrid/', views.bakrid, name='bakrid'),
+    path('kabir/', views.kabir, name='kabir'),
+    path('father/', views.father, name='father'),
+    path('muharam/', views.muharam, name='muharam'),
+    path('friend/', views.friend, name='friend'),
+    path('raksha/', views.raksha,name='raksha'),
+    path('independance/', views.independance,name='independance'),
+    path('krishna/', views.krishna,name='krishna'),
+    path('ganesh/', views.ganesh,name='ganesh'),
+    path('onam/', views.onam,name='onam'),
+    path('teacher/', views.teacher,name='teacher'),
+    path('durga/', views.durga,name='durga'),
+    path('vijaya/', views.vijaya,name='vijaya'),
+    path('gandhi/', views.gandhi,name='gandhi'),
+    path('diwali/', views.diwali,name='diwali'),
+    path('children/', views.children,name='children'),
     path('lily/', include('lily.urls')),
-    
+    path('get_events/', views.get_events, name='get_events'),
+    path('add_event/', views.add_event, name='add_event'),
+    path('events/update/', views.update_event, name='update_event'),
+     path('delete_event/<int:event_id>/', views.delete_event, name='delete_event'),
+    path('update_event/<int:event_id>/', views.update_event, name='update_event'),
+    path('event_details/<int:event_id>/', views.event_details, name='event_details'),
+    path('categorized_events/', views.categorized_events, name='categorized_events'),
 ]
 
