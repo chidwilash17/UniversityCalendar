@@ -3,3 +3,12 @@ This project is a University Calendar Management System designed to efficiently 
 
 # LIVE PREVIEW
 [![App Screenshot](./chidwi.png)](https://siddu6301.pythonanywhere.com/)
+
+## 🛠️ **Technologies Used**
+
+- **Django**: Web framework for building the project.
+- **SQLite**: Default database for the application (can be changed to PostgreSQL or MySQL).
+- **HTML/CSS/JS**: Frontend technologies for the user interface.
+- **Bootstrap**: Frontend framework for responsive design.
+
+---
