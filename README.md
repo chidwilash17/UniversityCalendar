@@ -18,9 +18,6 @@
 
 <!-- Live Demo & Action Buttons -->
 <p>
-  <a href="https://chidwilash17.pythonanywhere.com">
-    <img src="https://img.shields.io/badge/🚀_LIVE_DEMO-Visit_Now-FF6B6B?style=for-the-badge&labelColor=FF6B6B" alt="Live Demo"/>
-  </a>
   <a href="https://github.com/chidwilash17/UniversityCalendar/stargazers">
     <img src="https://img.shields.io/github/stars/chidwilash17/UniversityCalendar?style=for-the-badge&logo=github&color=yellow&labelColor=yellow" alt="Stars"/>
   </a>
@@ -28,6 +25,29 @@
     <img src="https://img.shields.io/github/forks/chidwilash17/UniversityCalendar?style=for-the-badge&logo=github&color=blue&labelColor=blue" alt="Forks"/>
   </a>
 </p>
+
+<br/>
+
+<!-- 🌐 PROMINENT LIVE DEMO SECTION -->
+<table>
+<tr>
+<td>
+
+### 🚀 **TRY IT NOW - LIVE DEMO**
+
+<a href="https://siddu6301.pythonanywhere.com">
+  <img src="https://img.shields.io/badge/▶_CLICK_HERE_TO_VISIT_LIVE_WEBSITE-00C851?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Demo" width="400"/>
+</a>
+
+<br/><br/>
+
+🔗 **Live URL:** [`https://siddu6301.pythonanywhere.com/`](https://siddu6301.pythonanywhere.com)
+
+</td>
+</tr>
+</table>
+
+<br/>
 
 <!-- Separator -->
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
