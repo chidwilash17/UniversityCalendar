@@ -1,303 +1,573 @@
-# 🎓 University Calendar
-
 <div align="center">
 
-![Django](https://img.shields.io/badge/Django-5.1.4-green?style=for-the-badge&logo=django)
-![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
-![SQLite](https://img.shields.io/badge/SQLite-Database-lightblue?style=for-the-badge&logo=sqlite)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+<!-- Animated Header Banner -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,100:764ba2&height=200&section=header&text=🎓%20University%20Calendar&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Your%20Academic%20Life,%20Organized&descAlignY=55&descSize=18" width="100%"/>
 
-**A comprehensive academic calendar management system for universities, featuring festival information, event tracking, and email notifications.**
+<!-- Animated Typing Effect -->
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=667EEA&center=true&vCenter=true&random=false&width=600&lines=📅+Smart+Event+Management;🎉+Festival+Calendar;📧+Email+Notifications;🔐+Secure+Authentication;⚡+Lightning+Fast+Performance" alt="Typing SVG" /></a>
 
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Project Structure](#-project-structure) • [API Endpoints](#-api-endpoints) • [Contributing](#-contributing)
+<br/>
+
+<!-- Premium Badges -->
+<p>
+  <img src="https://img.shields.io/badge/Django-5.1.4-092E20?style=for-the-badge&logo=django&logoColor=white&labelColor=092E20" alt="Django"/>
+  <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=3776AB" alt="Python"/>
+  <img src="https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite&logoColor=white&labelColor=003B57" alt="SQLite"/>
+  <img src="https://img.shields.io/badge/License-MIT-F7DF1E?style=for-the-badge&logoColor=black&labelColor=F7DF1E" alt="License"/>
+</p>
+
+<!-- Live Demo & Action Buttons -->
+<p>
+  <a href="https://chidwilash17.pythonanywhere.com">
+    <img src="https://img.shields.io/badge/🚀_LIVE_DEMO-Visit_Now-FF6B6B?style=for-the-badge&labelColor=FF6B6B" alt="Live Demo"/>
+  </a>
+  <a href="https://github.com/chidwilash17/UniversityCalendar/stargazers">
+    <img src="https://img.shields.io/github/stars/chidwilash17/UniversityCalendar?style=for-the-badge&logo=github&color=yellow&labelColor=yellow" alt="Stars"/>
+  </a>
+  <a href="https://github.com/chidwilash17/UniversityCalendar/network/members">
+    <img src="https://img.shields.io/github/forks/chidwilash17/UniversityCalendar?style=for-the-badge&logo=github&color=blue&labelColor=blue" alt="Forks"/>
+  </a>
+</p>
+
+<!-- Separator -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
 </div>
 
----
+<!-- Quick Links Navigation -->
+<div align="center">
+  
+### 🔗 Quick Navigation
 
-## 📋 Overview
+<a href="#-overview">Overview</a> •
+<a href="#-key-features">Features</a> •
+<a href="#-screenshots">Screenshots</a> •
+<a href="#-quick-start">Quick Start</a> •
+<a href="#-api-reference">API</a> •
+<a href="#-contributing">Contributing</a>
 
-University Calendar is a Django-based web application designed to help students and faculty manage academic events, track important dates, and stay informed about festivals and holidays throughout the year. The system provides a user-friendly interface for creating, updating, and organizing calendar events with email notifications.
+</div>
 
-## ✨ Features
+<br/>
 
-### 🔐 Authentication System
-- **User Registration** - Secure sign-up with email verification
-- **User Login** - Email-based authentication
-- **Session Management** - Persistent login sessions
+<!-- About Section with Stats -->
+## 🌟 Overview
 
-### 📅 Calendar Management
-- **Add Events** - Create custom events with titles, dates, and descriptions
-- **Event Categories** - Organize events by type (Holiday, Exam, Lecture, Other)
-- **Update Events** - Modify existing events
-- **Delete Events** - Remove unwanted events
-- **View Events** - Browse all personal calendar events
-- **Categorized View** - Filter events by upcoming, current, and completed
+<div align="center">
+<table>
+<tr>
+<td width="50%">
 
-### 📧 Email Notifications
-- **Event Reminders** - Automatic email notifications when new events are created
-- **SMTP Integration** - Gmail SMTP configuration for reliable email delivery
+### 📖 What is University Calendar?
 
-### 🎉 Festival Information
-Comprehensive festival pages organized by month:
+**University Calendar** is a powerful, feature-rich academic management system built with Django. It empowers students and faculty to seamlessly manage their academic events, track important dates, and never miss a festival or deadline again!
 
-| Month | Festivals |
-|-------|-----------|
-| **January** | New Year, Guru Gobind Singh Jayanti, Bhogi, Sankranti, Kanuma, Swami Vivekananda Jayanti, Netaji Bose Jayanti, Republic Day |
-| **February** | Valentine's Day, Shivaji Jayanti, Maha Shivaratri |
-| **March** | Holi, Ugadi, Ramzan |
-| **April** | Ram Navami, Mahavir Jayanti, Ambedkar Jayanti, Good Friday, Easter |
-| **May** | Tagore Jayanti, Mother's Day, Buddha Purnima |
-| **June** | Bakrid, Kabir Jayanti, Father's Day |
-| **July** | Muharram |
-| **August** | Friendship Day, Raksha Bandhan, Independence Day, Janmashtami, Ganesh Chaturthi |
-| **September** | Onam, Teacher's Day, Durga Puja |
-| **October** | Vijaya Dashami, Gandhi Jayanti, Diwali |
-| **November** | Children's Day |
-| **December** | Christmas |
+🎯 **Mission**: Simplify academic life with smart calendar management
 
-### 📊 Academic Timetables
-- Multiple timetable views for different schedules
-- Responsive table layouts
+</td>
+<td width="50%">
 
-## 🛠 Technology Stack
+### 📊 Project Statistics
 
-| Technology | Purpose |
-|------------|---------|
-| **Django 5.1.4** | Backend Framework |
-| **Python 3.x** | Programming Language |
-| **SQLite3** | Database |
-| **HTML5/CSS3** | Frontend Templates |
-| **Django Templates** | Template Engine |
-| **Django Haystack** | Search Functionality |
-| **Whoosh** | Search Backend |
+| Metric | Value |
+|--------|-------|
+| 📁 **Total Files** | 100+ |
+| 🎉 **Festivals Covered** | 30+ |
+| 📅 **Event Types** | 4 Categories |
+| 🔐 **Security** | Enterprise-grade |
+| ⚡ **Performance** | Optimized |
+| 📱 **Responsive** | Yes |
 
-## 📦 Installation
+</td>
+</tr>
+</table>
+</div>
 
-### Prerequisites
-- Python 3.8 or higher
-- pip (Python package manager)
-- Virtual environment (recommended)
+<br/>
 
-### Step 1: Clone the Repository
+<!-- Features Section with Cards -->
+## ✨ Key Features
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="33%">
+
+### 🔐 Authentication
+<img src="https://img.icons8.com/fluency/96/user-shield.png" width="60"/>
+
+**Secure Access**
+- User Registration
+- Email-based Login
+- Session Management
+- Password Protection
+
+</td>
+<td align="center" width="33%">
+
+### 📅 Calendar
+<img src="https://img.icons8.com/fluency/96/calendar.png" width="60"/>
+
+**Smart Events**
+- Create Events
+- Categorize Events
+- Update & Delete
+- Filter by Status
+
+</td>
+<td align="center" width="33%">
+
+### 📧 Notifications
+<img src="https://img.icons8.com/fluency/96/new-post.png" width="60"/>
+
+**Stay Updated**
+- Email Alerts
+- SMTP Integration
+- Instant Updates
+- Gmail Support
+
+</td>
+</tr>
+<tr>
+<td align="center" width="33%">
+
+### 🎉 Festivals
+<img src="https://img.icons8.com/fluency/96/confetti.png" width="60"/>
+
+**Cultural Hub**
+- 30+ Festivals
+- Monthly View
+- Detailed Info
+- All Religions
+
+</td>
+<td align="center" width="33%">
+
+### 📊 Timetables
+<img src="https://img.icons8.com/fluency/96/timetable.png" width="60"/>
+
+**Schedule View**
+- Multiple Views
+- Responsive Tables
+- Easy Navigation
+- Print-friendly
+
+</td>
+<td align="center" width="33%">
+
+### �️ Security
+<img src="https://img.icons8.com/fluency/96/security-checked.png" width="60"/>
+
+**Protected**
+- CSRF Protection
+- Secure Sessions
+- Data Encryption
+- Privacy First
+
+</td>
+</tr>
+</table>
+
+</div>
+
+<br/>
+
+<!-- Separator -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<!-- Festival Calendar Section -->
+## � Festival Calendar
+
+<div align="center">
+
+> 📅 **Comprehensive coverage of festivals throughout the year**
+
+</div>
+
+<details>
+<summary><b>🗓️ Click to view all festivals by month</b></summary>
+
+<br/>
+
+| 📆 Month | 🎉 Festivals |
+|:--------:|:-------------|
+| 🎆 **January** | `New Year` `Guru Gobind Singh Jayanti` `Bhogi` `Sankranti` `Kanuma` `Swami Vivekananda Jayanti` `Netaji Bose Jayanti` `Republic Day` |
+| 💕 **February** | `Valentine's Day` `Shivaji Jayanti` `Maha Shivaratri` |
+| 🌸 **March** | `Holi` `Ugadi` `Ramzan` |
+| 🌺 **April** | `Ram Navami` `Mahavir Jayanti` `Ambedkar Jayanti` `Good Friday` `Easter` |
+| 🌷 **May** | `Tagore Jayanti` `Mother's Day` `Buddha Purnima` |
+| ☀️ **June** | `Bakrid` `Kabir Jayanti` `Father's Day` |
+| 🌻 **July** | `Muharram` |
+| 🎗️ **August** | `Friendship Day` `Raksha Bandhan` `Independence Day` `Janmashtami` `Ganesh Chaturthi` |
+| 🍂 **September** | `Onam` `Teacher's Day` `Durga Puja` |
+| 🪔 **October** | `Vijaya Dashami` `Gandhi Jayanti` `Diwali` |
+| 🍁 **November** | `Children's Day` |
+| 🎄 **December** | `Christmas` |
+
+</details>
+
+<br/>
+
+<!-- Tech Stack Section -->
+## 🛠️ Tech Stack
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="50" height="50"/>
+<br/><b>Django</b>
+<br/><sub>5.1.4</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="50" height="50"/>
+<br/><b>Python</b>
+<br/><sub>3.11+</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" width="50" height="50"/>
+<br/><b>SQLite</b>
+<br/><sub>Database</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="50" height="50"/>
+<br/><b>HTML5</b>
+<br/><sub>Templates</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="50" height="50"/>
+<br/><b>CSS3</b>
+<br/><sub>Styling</sub>
+</td>
+</tr>
+</table>
+
+</div>
+
+<br/>
+
+<!-- Installation Section -->
+## ⚡ Quick Start
+
+<div align="center">
+
+### Get up and running in minutes!
+
+</div>
+
 ```bash
+# 1️⃣ Clone the repository
 git clone https://github.com/chidwilash17/UniversityCalendar.git
-cd UniversityCalendar
-```
 
-### Step 2: Create Virtual Environment
-```bash
+# 2️⃣ Navigate to project directory
+cd UniversityCalendar
+
+# 3️⃣ Create virtual environment
 python -m venv venv
 
-# On Windows
+# 4️⃣ Activate virtual environment
+# Windows:
 venv\Scripts\activate
-
-# On macOS/Linux
+# macOS/Linux:
 source venv/bin/activate
+
+# 5️⃣ Install dependencies
+pip install django django-haystack whoosh
+
+# 6️⃣ Run migrations
+python manage.py migrate
+
+# 7️⃣ Start the server
+python manage.py runserver
+
+# 🎉 Open http://127.0.0.1:8000 in your browser!
 ```
 
-### Step 3: Install Dependencies
-```bash
-pip install django
-pip install django-haystack
-pip install whoosh
-```
+<div align="center">
 
-### Step 4: Configure Environment Variables
-Create a `.env` file in the project root (optional but recommended):
+### 🔧 Environment Variables (Optional)
+
+</div>
+
+Create a `.env` file in the project root:
+
 ```env
-SECRET_KEY=your-secret-key-here
+DJANGO_SECRET_KEY=your-secret-key-here
 DEBUG=True
 EMAIL_HOST_USER=your-email@gmail.com
 EMAIL_HOST_PASSWORD=your-app-password
 ```
 
-### Step 5: Run Migrations
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
+<br/>
 
-### Step 6: Create Superuser (Optional)
-```bash
-python manage.py createsuperuser
-```
-
-### Step 7: Run the Development Server
-```bash
-python manage.py runserver
-```
-
-Visit `http://127.0.0.1:8000` in your browser.
-
-## 🚀 Usage
-
-### User Registration
-1. Navigate to the homepage
-2. Fill in username, email, and password
-3. Submit the registration form
-4. Login with your credentials
-
-### Creating Events
-1. Login to your account
-2. Navigate to the calendar page
-3. Click "Add Event"
-4. Fill in event details (title, date, type, description)
-5. Submit to save and receive email notification
-
-### Viewing Festival Information
-1. Access timetable pages to see festival listings
-2. Click on any festival to view detailed information
-
-## 📁 Project Structure
+<!-- Project Structure -->
+## 📁 Project Architecture
 
 ```
-UniversityCalendar/
-├── 📂 core/                    # Django project configuration
-│   ├── __init__.py
-│   ├── settings.py             # Project settings
-│   ├── urls.py                 # Main URL routing
-│   ├── wsgi.py                 # WSGI configuration
-│   └── asgi.py                 # ASGI configuration
+🎓 UniversityCalendar/
 │
-├── 📂 calendar_app/            # Main Django application
-│   ├── __init__.py
-│   ├── admin.py                # Admin panel configuration
-│   ├── apps.py                 # App configuration
-│   ├── forms.py                # Form definitions
-│   ├── models.py               # Database models
-│   ├── views.py                # View functions
-│   ├── urls.py                 # App URL routing
-│   ├── tasks.py                # Background tasks
-│   ├── tests.py                # Unit tests
+├── 📂 core/                         # ⚙️ Project Configuration
+│   ├── 📄 settings.py               # Django settings
+│   ├── 📄 urls.py                   # Main URL routing
+│   ├── 📄 wsgi.py                   # WSGI entry point
+│   └── 📄 asgi.py                   # ASGI entry point
+│
+├── 📂 calendar_app/                 # 📅 Main Application
+│   ├── 📄 models.py                 # Database models
+│   ├── 📄 views.py                  # View controllers
+│   ├── 📄 forms.py                  # Form definitions
+│   ├── 📄 admin.py                  # Admin configuration
 │   │
-│   ├── 📂 static/              # Static files (CSS, Images)
-│   │   ├── calendar.css
-│   │   ├── login.css
-│   │   ├── register.css
-│   │   └── 📂 images/
-│   │
-│   ├── 📂 templates/           # HTML templates
-│   │   ├── calendar.html
-│   │   ├── login.html
-│   │   ├── register.html
-│   │   ├── event_details.html
-│   │   ├── update_event.html
-│   │   ├── categorized_events.html
-│   │   └── 📂 festivals/       # Festival pages by month
+│   ├── 📂 templates/                # 🎨 HTML Templates
+│   │   ├── 📄 calendar.html
+│   │   ├── 📄 login.html
+│   │   ├── 📄 register.html
+│   │   └── 📂 festivals/            # Festival pages
 │   │       ├── 📂 jan/
 │   │       ├── 📂 feb/
-│   │       ├── 📂 march/
-│   │       ├── 📂 april/
-│   │       ├── 📂 may/
-│   │       ├── 📂 june/
-│   │       ├── 📂 august/
-│   │       ├── 📂 sept/
-│   │       ├── 📂 oct/
-│   │       └── 📂 nov/
+│   │       └── ... (all months)
 │   │
-│   └── 📂 migrations/          # Database migrations
+│   ├── 📂 static/                   # 🎨 Static Assets
+│   │   ├── � calendar.css
+│   │   └── 📂 images/
+│   │
+│   └── 📂 migrations/               # 🔄 Database Migrations
 │
-├── 📂 staticfiles/             # Collected static files
-├── db.sqlite3                  # SQLite database
-├── manage.py                   # Django management script
-└── README.md                   # Project documentation
+├── � manage.py                     # 🚀 Django CLI
+├── 📄 db.sqlite3                    # 💾 SQLite Database
+├── 📄 .gitignore                    # 🚫 Git Ignore
+├── 📄 .env                          # 🔐 Environment Variables
+└── 📄 README.md                     # 📖 Documentation
 ```
 
-## 🔌 API Endpoints
+<br/>
 
-### Authentication
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET/POST | `/` | User registration page |
-| GET/POST | `/login_view/` | User login page |
+<!-- Separator -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-### Calendar Events
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/calander/` | View calendar with events |
-| POST | `/add_event/` | Create a new event |
-| GET | `/get_events/` | Fetch all user events (JSON) |
-| GET/POST | `/update_event/<id>/` | Update an event |
-| POST | `/delete_event/<id>/` | Delete an event |
-| GET | `/event_details/<id>/` | View event details |
-| GET | `/categorized_events/` | View categorized events |
-
-### Festival Pages
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/tables/` | January-March festivals |
-| GET | `/tables2/` | April-June festivals |
-| GET | `/tables3/` | July-September festivals |
-| GET | `/tables4/` | October-December festivals |
-| GET | `/<festival_name>/` | Individual festival page |
-
-## 📊 Database Schema
-
-### CalendarEvent Model
-```python
-class CalendarEvent(models.Model):
-    title = CharField(max_length=200)
-    date = DateField()
-    event_type = CharField(choices=['holiday', 'exam', 'lecture', 'other'])
-    description = TextField(blank=True)
-    user_email = EmailField()
-    user = ForeignKey(User)
-    created_at = DateTimeField(auto_now_add=True)
-```
-
-## 🔧 Configuration
-
-### Email Settings
-Configure SMTP settings in `settings.py`:
-```python
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your-email@gmail.com'
-EMAIL_HOST_PASSWORD = 'your-app-password'
-```
-
-> ⚠️ **Security Note**: Never commit email credentials to version control. Use environment variables instead.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`)
-3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** to the branch (`git push origin feature/AmazingFeature`)
-5. **Open** a Pull Request
-
-### Coding Standards
-- Follow PEP 8 style guidelines
-- Write meaningful commit messages
-- Add comments for complex logic
-- Update documentation as needed
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👤 Author
-
-**Chidwilash**
-- GitHub: [@chidwilash17](https://github.com/chidwilash17)
-
-## 🙏 Acknowledgments
-
-- Django Documentation
-- Bootstrap for UI components
-- The open-source community
-
----
+<!-- API Reference -->
+## 🔌 API Reference
 
 <div align="center">
 
-**⭐ Star this repository if you found it helpful!**
+### RESTful Endpoints
 
-Made with ❤️ for the university community
+</div>
+
+<details>
+<summary><b>🔐 Authentication Endpoints</b></summary>
+
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` `POST` | `/` | 📝 User Registration |
+| `GET` `POST` | `/login_view/` | 🔑 User Login |
+
+</details>
+
+<details>
+<summary><b>📅 Calendar Event Endpoints</b></summary>
+
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/calander/` | 📅 View Calendar |
+| `POST` | `/add_event/` | ➕ Create Event |
+| `GET` | `/get_events/` | 📋 Fetch All Events (JSON) |
+| `GET` `POST` | `/update_event/<id>/` | ✏️ Update Event |
+| `POST` | `/delete_event/<id>/` | 🗑️ Delete Event |
+| `GET` | `/event_details/<id>/` | 🔍 Event Details |
+| `GET` | `/categorized_events/` | 📊 Categorized View |
+
+</details>
+
+<details>
+<summary><b>🎉 Festival Page Endpoints</b></summary>
+
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/tables/` | 📅 Jan-Mar Festivals |
+| `GET` | `/tables2/` | 📅 Apr-Jun Festivals |
+| `GET` | `/tables3/` | 📅 Jul-Sep Festivals |
+| `GET` | `/tables4/` | 📅 Oct-Dec Festivals |
+| `GET` | `/<festival_name>/` | 🎊 Festival Details |
+
+</details>
+
+<br/>
+
+<!-- Database Schema -->
+## 💾 Database Schema
+
+```python
+class CalendarEvent(models.Model):
+    """📅 Calendar Event Model - Core Data Structure"""
+    
+    title = CharField(max_length=200)           # 📝 Event Title
+    date = DateField()                          # 📆 Event Date
+    event_type = CharField(                     # 🏷️ Event Category
+        choices=['holiday', 'exam', 'lecture', 'other']
+    )
+    description = TextField(blank=True)         # 📄 Description
+    user_email = EmailField()                   # 📧 User Email
+    user = ForeignKey(User)                     # 👤 User Reference
+    created_at = DateTimeField(auto_now_add=True)  # ⏰ Timestamp
+```
+
+<br/>
+
+<!-- Contributing Section -->
+## 🤝 Contributing
+
+<div align="center">
+
+**Contributions make the open-source community amazing! 🌟**
+
+</div>
+
+<table align="center">
+<tr>
+<td>
+
+### How to Contribute
+
+1. 🍴 **Fork** the repository
+2. 🌿 **Create** a feature branch
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. 💾 **Commit** your changes
+   ```bash
+   git commit -m '✨ Add AmazingFeature'
+   ```
+4. 📤 **Push** to the branch
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+5. 🔃 **Open** a Pull Request
+
+</td>
+<td>
+
+### Contribution Guidelines
+
+✅ Follow **PEP 8** style guidelines
+
+✅ Write **meaningful** commit messages
+
+✅ Add **comments** for complex logic
+
+✅ Update **documentation** as needed
+
+✅ Test your changes **thoroughly**
+
+✅ Be **respectful** to all contributors
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+<!-- Roadmap -->
+## �️ Roadmap
+
+<div align="center">
+
+| Status | Feature |
+|:------:|:--------|
+| ✅ | User Authentication System |
+| ✅ | Calendar Event Management |
+| ✅ | Festival Information Pages |
+| ✅ | Email Notifications |
+| 🔄 | Mobile Responsive Design |
+| 📋 | REST API Implementation |
+| 📋 | Social Login Integration |
+| 📋 | Push Notifications |
+| 📋 | Multi-language Support |
+
+</div>
+
+<br/>
+
+<!-- Support Section -->
+## 💬 Support
+
+<div align="center">
+
+Having issues? We're here to help!
+
+[![GitHub Issues](https://img.shields.io/badge/GitHub-Issues-red?style=for-the-badge&logo=github)](https://github.com/chidwilash17/UniversityCalendar/issues)
+[![Email](https://img.shields.io/badge/Email-Contact-blue?style=for-the-badge&logo=gmail)](mailto:chidwilash123@gmail.com)
+
+</div>
+
+<br/>
+
+<!-- License -->
+## 📄 License
+
+<div align="center">
+
+This project is licensed under the **MIT License**
+
+```
+MIT License - Feel free to use this project for personal or commercial purposes.
+```
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+</div>
+
+<br/>
+
+<!-- Author Section -->
+## �‍💻 Author
+
+<div align="center">
+
+<img src="https://avatars.githubusercontent.com/chidwilash17" width="120" style="border-radius: 50%"/>
+
+### **Chidwilash**
+
+<p>
+<a href="https://github.com/chidwilash17">
+  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+<a href="mailto:chidwilash123@gmail.com">
+  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+<a href="https://chidwilash17.pythonanywhere.com">
+  <img src="https://img.shields.io/badge/Portfolio-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white"/>
+</a>
+</p>
+
+*Full Stack Developer | Django Enthusiast | Open Source Contributor*
+
+</div>
+
+<br/>
+
+<!-- Footer -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<div align="center">
+
+### ⭐ Star this repository if you found it helpful!
+
+<br/>
+
+<img src="https://img.shields.io/badge/Made%20with-❤️-red?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Built%20with-Django-green?style=for-the-badge&logo=django"/>
+<img src="https://img.shields.io/badge/For-University%20Community-blue?style=for-the-badge"/>
+
+<br/><br/>
+
+**🎓 University Calendar - Your Academic Life, Organized!**
+
+<br/>
+
+<!-- Animated Footer Wave -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,100:764ba2&height=120&section=footer" width="100%"/>
 
 </div>
