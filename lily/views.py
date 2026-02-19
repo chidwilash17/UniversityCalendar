@@ -166,7 +166,7 @@ def add_event(request):
             event.save()
 
             try:
-                send_mail(
+from django.core.mail import send_mail
                     f'New Calendar Event: {title}',
                     f'''Event Details:
                     
