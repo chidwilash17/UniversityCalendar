@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+</head>
+<body>
+    <section>
+        <div class="register-box">
+            <form method="POST">
+                {% csrf_token %}
+                <h2>Register</h2>
+                <!-- Username field -->
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="username" id="username" required>
+                    <label for="username">Username</label>
+                </div>
+                <!-- Email field -->
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" name="email" id="email" required> 
+                    <label for="email">Email</label>
+                </div>
+                <!-- Password field -->
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="password1" id="password1" required>
+                    <label for="password1">Password</label>
+                </div>
+                <!-- Confirm Password field -->
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="password2" id="password2" required>
+                    <label for="password2">Confirm Password</label>
+                </div>
+                <!-- Terms and conditions checkbox -->
+                <div class="remember-forget">
+                    <label><input type="checkbox" name="terms" id="terms" required> I agree to the terms and conditions</label>
+                </div>
+                <!-- Error message for invalid login -->
+                {% if messages %}
+                <div class="error-message">
+                    {% for message in messages %}
+                    <p class="alert alert-danger">{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <!-- Submit Button -->
+                <button type="submit">Register</button>
+                <!-- Already have an account -->
+                <div class="register-link">
+                    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

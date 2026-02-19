@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makara Sankranti - JNTU-GV Calendar</title>
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'sankranti.css' %}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'calendar' %}">
+                <i class="fas fa-calendar-alt me-1"></i>JNTU-GV Calendar
+            </a>
+            <div class="d-flex align-items-center">
+                <span class="text-light me-2">
+                    <i class="fas fa-user-circle me-1"></i>{{ request.user.username }}
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Festival Header -->
+    <header class="festival-header">
+        <div class="container">
+            <h1>Happy Makara Sankranti</h1>
+            <p class="lead">Celebrating the harvest festival and sun's northward journey</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="card-container">
+            <div class="card festival-card">
+                <div class="image-container">
+                    <img src="{% static 'images/sankranti.jpg' %}" alt="Makara Sankranti Celebration">
+                </div>
+                <div class="card-body">
+                    <h3>MAKARA SANKRANTI</h3>
+                    <p>
+                        Makar Sankranti marks the transition of the Sun into Makara Râshi (Capricorn) on its celestial path, and the beginning of the six-month Uttarayana period. This festival is celebrated across India with different names and traditions, but universally signifies the end of winter and the start of longer days.
+                    </p>
+                    <p>
+                        Makar Sankranti is unique as it's one of the few Hindu festivals based on the solar calendar rather than the lunar calendar, which is why it falls on approximately the same date every year (January 14 or 15). The festival celebrates the harvest season and is associated with special foods made of sesame and jaggery, kite flying, bonfires, and ritual baths in holy rivers.
+                    </p>
+                    <p>
+                        In different regions, the festival is known as Pongal (Tamil Nadu), Lohri (Punjab), Bihu (Assam), and Uttarayan (Gujarat). The festival symbolizes the victory of light over darkness and knowledge over ignorance, marking an important astronomical event when the sun begins its northward journey.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <i class="fas fa-calendar-day me-1"></i> Celebrated annually on January 14th or 15th
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} JNTU-GV Calendar. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-danger"></i> by <a href="{% url 'calendar' %}">JNTU-GV Team</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Falling Elements Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Festival elements - kites, sun, sesame, etc.
+            const elements = [
+                '🪁', '☀️', '🌾', '🪔', '🌸',
+                '🌻', '🫘', '🍯', '🔥', '🌊',
+                '🙏', '🕉️', '🎪', '🎯', '🏮'
+            ];
+            
+            function createFallingElement() {
+                const element = document.createElement('div');
+                element.className = 'falling-element';
+                element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+                
+                // Random position across the width of the screen
+                const leftPos = Math.random() * window.innerWidth;
+                element.style.left = leftPos + 'px';
+                
+                // Random animation duration between 5 to 15 seconds
+                const duration = Math.random() * 10 + 5;
+                element.style.animationDuration = duration + 's';
+                
+                // Random size
+                const size = Math.random() * 20 + 15;
+                element.style.fontSize = size + 'px';
+                
+                // Random rotation direction
+                const rotation = Math.random() > 0.5 ? 360 : -360;
+                element.style.setProperty('--rotation', rotation + 'deg');
+                
+                document.body.appendChild(element);
+                
+                // Remove element after animation completes
+                setTimeout(() => {
+                    element.remove();
+                }, duration * 1000);
+            }
+            
+            // Create a new falling element every 0.5 to 1.5 seconds
+            setInterval(createFallingElement, 500);
+            
+            // Create some initial elements
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createFallingElement, i * 300);
+            }
+        });
+    </script>
+</body>
+</html>

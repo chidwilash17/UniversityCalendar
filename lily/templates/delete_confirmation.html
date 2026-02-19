@@ -1,0 +1,13 @@
+
+
+{% block content %}
+<div class="container">
+    <h2>Delete Event</h2>
+    <p>Are you sure you want to delete the event "<strong>{{ event.title }}</strong>" scheduled on {{ event.date }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="{% url 'calander' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
